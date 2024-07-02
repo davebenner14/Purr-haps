@@ -1,0 +1,48 @@
+.MenuSelectionContainer {
+  position: absolute;
+  top: -13.2%;
+  left: 77.6%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: auto;
+}
+
+.MenuSelectionImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.MenuButton {
+  background-color: #864d42;
+  color: white;
+  border: 4px solid black;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  width: 67%;
+  z-index: 10;
+  height: 12%;
+}
+
+.MenuButton:hover {
+  background-color: rgba(134, 77, 66, 0.8);
+}
+
+.MenuButton1 {
+  top: 43.5%;
+  left: 53.5%;
+}
+
+.MenuButton2 {
+  top: 57%;
+  left: 53.5%;
+}
+
+.MenuButton3 {
+  top: 70.8%;
+  left: 53.5%;
+}

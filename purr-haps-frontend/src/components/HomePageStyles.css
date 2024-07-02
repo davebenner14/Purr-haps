@@ -1,0 +1,62 @@
+/* HomePageStyles.css */
+
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: "MedievalSharp", cursive;
+}
+
+.PageContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.BackgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.ButtonContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.Button {
+  background-color: #864d42;
+  color: white;
+  border: 4px solid black;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  z-index: 10;
+}
+
+.Button:hover {
+  background-color: rgba(134, 77, 66, 0.8);
+}
+
+.Button1 {
+  top: 40.3vh;
+  left: 78.2vw;
+}
+
+.Button2 {
+  top: 61vh;
+  left: 78.2vw;
+}
+
+.Button3 {
+  top: 81.5vh;
+  left: 78.2vw;
+}
