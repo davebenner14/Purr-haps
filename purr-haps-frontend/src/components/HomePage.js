@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "../assets/images/HomeBackground.jpeg";
 import menuSelectionImage from "../assets/images/MenuSelection.png";
-import catGuyImage from "../assets/images/CatGuy.png";
 import "./HomePageStyles.css";
 import "./MenuSelection.css";
 import "./CatGuy.css";
@@ -31,19 +30,19 @@ const HomePage = () => {
           className="MenuButton MenuButton1"
           onClick={() => handleButtonClick("/menu1")}
         >
-          Menu Item 1
+          Character Selection
         </button>
         <button
           className="MenuButton MenuButton2"
           onClick={() => handleButtonClick("/menu2")}
         >
-          Menu Item 2
+          FAQ
         </button>
         <button
           className="MenuButton MenuButton3"
           onClick={() => handleButtonClick("/menu3")}
         >
-          Menu Item 3
+          Contact Us
         </button>
       </div>
     </div>
