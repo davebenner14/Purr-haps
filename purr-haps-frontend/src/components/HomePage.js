@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/images/HomeBackground.jpeg"; // Updated background image
+import backgroundImage from "../assets/images/HomeBackground.jpeg";
 import menuSelectionImage from "../assets/images/MenuSelection.png";
-import catGuyImage from "../assets/images/CatGuy.png"; // New asset
+import catGuyImage from "../assets/images/CatGuy.png";
 import "./HomePageStyles.css";
 import "./MenuSelection.css";
-import "./CatGuy.css"; // New CSS for CatGuy
+import "./CatGuy.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -45,9 +45,6 @@ const HomePage = () => {
         >
           Menu Item 3
         </button>
-      </div>
-      <div className="CatGuyContainer">
-        <img src={catGuyImage} alt="Cat Guy" className="CatGuyImage" />
       </div>
     </div>
   );
