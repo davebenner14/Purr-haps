@@ -7,8 +7,6 @@
 
 .BackgroundImage {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -16,7 +14,6 @@
 }
 
 .Content {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,142 +24,98 @@
 }
 
 .Title {
-  font-size: 48px;
-  margin-bottom: 20px;
-  font-family: "MedievalSharp", cursive;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .Subtitle {
-  font-size: 24px;
-  font-family: "MedievalSharp", cursive;
-  margin-bottom: 40px;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .BoxesContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: 80%;
-  gap: 20px;
+  gap: 2rem;
+}
+
+.SmallBox,
+.LargeBox {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
 }
 
 .LargeBox {
-  width: 40%;
-  height: 500px;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  border-radius: 10px;
-  position: relative;
+  width: 400px;
 }
 
-.SmallBox {
-  width: 25%;
-  height: 500px;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  border-radius: 10px;
-  position: relative;
-}
-
+.ShirtBox,
 .CharacterInfo {
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
+.ShirtName,
 .CharacterName {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.CharacterImage {
-  width: 100%;
-  max-width: 200px; /* Adjust the max width as needed */
-  height: auto;
-  border-radius: 10px;
-}
-
-.AttributesTitle {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.ShirtBox {
-  text-align: center;
-}
-
-.ShirtName {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.ShirtImage {
-  width: 100%;
-  max-width: 200px; /* Adjust the max width as needed */
-  height: auto;
-  border-radius: 10px;
-}
-
-.ShirtDetails {
-  margin-top: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .Sizes {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .Size {
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.Size:hover,
 .Size.selected {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.AddToCartButton {
-  background-color: #864d42;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.AddToCartButton:hover {
-  background-color: #a5584c;
+.ShirtImage,
+.CharacterImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .ArrowContainer {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 0 20px;
 }
 
 .ArrowButton {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
   border: none;
-  padding: 10px;
-  font-size: 24px;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.ArrowButton:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+.AttributesTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.AddToCartButton {
+  background-color: #ff6347;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.AddToCartButton:hover {
+  background-color: #ff4500;
 }

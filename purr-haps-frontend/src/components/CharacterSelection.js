@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import backgroundImage from "../assets/images/FantasyBackground.jpg";
 import { characters, shirts } from "./CharacterData";
 import { Radar } from "react-chartjs-2";
@@ -27,6 +27,7 @@ const CharacterSelection = () => {
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
   const [currentShirtIndex, setCurrentShirtIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState(null);
+  const chartRef = useRef(null);
 
   const currentCharacter = characters[currentCharacterIndex];
   const currentShirt = shirts[currentShirtIndex];
@@ -60,47 +61,44 @@ const CharacterSelection = () => {
     setSelectedSize(size);
   };
 
-  const radarData = {
-    labels: [
-      "Strength",
-      "Dexterity",
-      "Constitution",
-      "Intelligence",
-      "Wisdom",
-      "Charisma"
-    ],
-    datasets: [
-      {
-        label: currentCharacter.name,
-        data: [
-          currentCharacter.attributes.strength,
-          currentCharacter.attributes.dexterity,
-          currentCharacter.attributes.constitution,
-          currentCharacter.attributes.intelligence,
-          currentCharacter.attributes.wisdom,
-          currentCharacter.attributes.charisma
-        ],
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 1
-      }
-    ]
+  const getChartData = (character) => {
+    const ctx = chartRef.current && chartRef.current.ctx;
+    const gradient = ctx ? ctx.createLinearGradient(0, 0, 0, 400) : null;
+    if (gradient) {
+      gradient.addColorStop(0, "rgba(255, 0, 0, 0.6)"); // Red
+      gradient.addColorStop(0.5, "rgba(255, 255, 0, 0.6)"); // Yellow
+      gradient.addColorStop(1, "rgba(0, 255, 0, 0.6)"); // Green
+    }
+
+    return {
+      labels: Object.keys(character.attributes),
+      datasets: [
+        {
+          label: character.name,
+          data: Object.values(character.attributes),
+          backgroundColor: gradient || "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(0, 0, 0, 1)", // Black border color for points
+          borderWidth: 2,
+          pointBackgroundColor: "rgba(255, 255, 255, 1)" // White point color
+        }
+      ]
+    };
   };
+
+  const radarData = getChartData(currentCharacter);
 
   const radarOptions = {
     scales: {
       r: {
+        beginAtZero: true,
+        max: 25,
         ticks: {
-          beginAtZero: true,
-          max: 25,
-          display: true,
+          display: false, // Hide the default tick labels
+          stepSize: 5,
           color: "white",
           font: {
             size: 10,
             weight: "bold"
-          },
-          callback: function (value) {
-            return value.toString();
           }
         },
         pointLabels: {
@@ -118,8 +116,35 @@ const CharacterSelection = () => {
           color: "rgba(255, 255, 255, 0.3)"
         }
       }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "white"
+        }
+      },
+      afterDraw: (chart) => {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((dataset) => {
+          const meta = chart.getDatasetMeta(0);
+          meta.data.forEach((point, index) => {
+            const { x, y } = point.tooltipPosition();
+            const value = dataset.data[index];
+            ctx.fillStyle = "white";
+            ctx.font = "bold 12px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText(value, x, y - 10); // Position the value below the point
+          });
+        });
+      }
     }
   };
+
+  useEffect(() => {
+    if (chartRef.current) {
+      chartRef.current.update();
+    }
+  }, [currentCharacterIndex]);
 
   return (
     <div className="PageContainer">
@@ -188,7 +213,7 @@ const CharacterSelection = () => {
           </div>
           <div className="SmallBox">
             <h2 className="AttributesTitle">Attributes</h2>
-            <Radar data={radarData} options={radarOptions} />
+            <Radar ref={chartRef} data={radarData} options={radarOptions} />
           </div>
         </div>
       </div>

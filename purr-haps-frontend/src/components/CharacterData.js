@@ -9,12 +9,12 @@ export const characters = [
     job: "Ranger",
     image: AragornImage,
     attributes: {
-      strength: 18,
-      dexterity: 17,
-      constitution: 16,
-      intelligence: 14,
-      wisdom: 15,
-      charisma: 20
+      Strength: 18,
+      Dexterity: 17,
+      Constitution: 16,
+      Intelligence: 14,
+      Wisdom: 15,
+      Charisma: 20
     }
   },
   {
@@ -22,12 +22,12 @@ export const characters = [
     job: "Archer",
     image: LegolasImage,
     attributes: {
-      strength: 15,
-      dexterity: 20,
-      constitution: 14,
-      intelligence: 16,
-      wisdom: 17,
-      charisma: 18
+      Strength: 15,
+      Dexterity: 20,
+      Constitution: 14,
+      Intelligence: 16,
+      Wisdom: 17,
+      Charisma: 18
     }
   }
   // Add more characters as needed
