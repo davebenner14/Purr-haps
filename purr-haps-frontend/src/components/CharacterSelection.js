@@ -61,6 +61,30 @@ const CharacterSelection = () => {
     setSelectedSize(size);
   };
 
+  const calculateMaxSize = () => {
+    const containerWidth = document.querySelector(".Sizes").offsetWidth;
+    const numberOfSizes = currentShirt.sizes.length;
+    const maxSize = Math.min(containerWidth / numberOfSizes - 10, 100); // 10px for padding/margin
+    return maxSize;
+  };
+
+  useEffect(() => {
+    const sizes = document.querySelectorAll(".Size");
+    const maxSize = calculateMaxSize();
+    sizes.forEach((size) => {
+      size.style.width = `${maxSize}px`;
+      size.style.fontSize = `${Math.max(12, maxSize * 0.5)}px`; // Adjust the font size relative to the button size, minimum 12px
+      const span = size.querySelector("span");
+      const parentWidth = size.offsetWidth;
+      const spanWidth = span.offsetWidth;
+      if (spanWidth > parentWidth) {
+        span.style.transform = `scale(${parentWidth / spanWidth})`;
+      } else {
+        span.style.transform = "scale(1)";
+      }
+    });
+  }, [currentShirtIndex, currentShirt.sizes.length]);
+
   const getChartData = (character) => {
     const ctx = chartRef.current && chartRef.current.ctx;
     const gradient = ctx ? ctx.createLinearGradient(0, 0, 0, 400) : null;
@@ -171,15 +195,17 @@ const CharacterSelection = () => {
                     }`}
                     onClick={() => handleSizeSelect(size)}
                   >
-                    {size}
+                    <span>{size}</span>
                   </span>
                 ))}
               </div>
-              <img
-                className="ShirtImage"
-                src={currentShirt.image}
-                alt={currentShirt.name}
-              />
+              <div className="ImageWrapper">
+                <img
+                  className="ShirtImage"
+                  src={currentShirt.image}
+                  alt={currentShirt.name}
+                />
+              </div>
               <div className="ShirtDetails">
                 <button className="AddToCartButton">Add to Cart</button>
               </div>
@@ -209,11 +235,13 @@ const CharacterSelection = () => {
               </button>
               <div className="CharacterInfo">
                 <h2 className="CharacterName">{currentCharacter.name}</h2>
-                <img
-                  className="CharacterImage"
-                  src={currentCharacter.image}
-                  alt={currentCharacter.name}
-                />
+                <div className="ImageWrapper">
+                  <img
+                    className="CharacterImage"
+                    src={currentCharacter.image}
+                    alt={currentCharacter.name}
+                  />
+                </div>
               </div>
               <button
                 className="ArrowButton DnDArrow"

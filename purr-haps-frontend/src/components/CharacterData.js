@@ -37,7 +37,7 @@ export const shirts = [
   {
     name: "Dragon T-shirt",
     image: DragonShirtImage,
-    sizes: ["S", "M", "L", "XL", "XXL"]
+    sizes: ["S", "M", "L", "XL", "XXL", "XXXL"]
   },
   {
     name: "Knight T-shirt",
