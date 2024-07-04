@@ -12,6 +12,7 @@ import {
   Legend
 } from "chart.js";
 import "./CharacterSelection.css";
+import "./Glow.css";
 
 // Register the components from chart.js
 ChartJS.register(
@@ -109,6 +110,18 @@ const CharacterSelection = () => {
     };
   };
 
+  useEffect(() => {
+    const ctx = chartRef.current && chartRef.current.ctx;
+    if (ctx) {
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, "rgba(255, 0, 0, 0.6)"); // Red
+      gradient.addColorStop(0.5, "rgba(255, 255, 0, 0.6)"); // Yellow
+      gradient.addColorStop(1, "rgba(0, 255, 0, 0.6)"); // Green
+      chartRef.current.data.datasets[0].backgroundColor = gradient;
+      chartRef.current.update();
+    }
+  }, [currentCharacterIndex]);
+
   const radarData = getChartData(currentCharacter);
 
   const radarOptions = {
@@ -169,6 +182,28 @@ const CharacterSelection = () => {
       chartRef.current.update();
     }
   }, [currentCharacterIndex]);
+
+  const animateText = () => {
+    const spans = document.querySelectorAll(".CharacterName.glow span");
+    spans.forEach((span) => {
+      span.classList.remove("show");
+    });
+    setTimeout(() => {
+      spans.forEach((span, index) => {
+        setTimeout(() => {
+          span.classList.add("show");
+        }, 200 * index); // Delay between each character
+      });
+    }, 100); // Slight delay to ensure text is hidden first
+  };
+
+  useEffect(() => {
+    animateText();
+  }, [currentCharacterIndex]);
+
+  useEffect(() => {
+    animateText();
+  }, []);
 
   return (
     <div className="PageContainer">
@@ -234,7 +269,11 @@ const CharacterSelection = () => {
                 {"<"}
               </button>
               <div className="CharacterInfo">
-                <h2 className="CharacterName">{currentCharacter.name}</h2>
+                <h2 className="CharacterName glow">
+                  {currentCharacter.name.split("").map((char, index) => (
+                    <span key={index}>{char}</span>
+                  ))}
+                </h2>
                 <div className="ImageWrapper">
                   <img
                     className="CharacterImage"
