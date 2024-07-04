@@ -185,17 +185,26 @@ const CharacterSelection = () => {
               </div>
             </div>
             <div className="ArrowContainer">
-              <button className="ArrowButton" onClick={handlePreviousShirt}>
+              <button
+                className="ArrowButton DnDArrow"
+                onClick={handlePreviousShirt}
+              >
                 {"<"}
               </button>
-              <button className="ArrowButton" onClick={handleNextShirt}>
+              <button
+                className="ArrowButton DnDArrow"
+                onClick={handleNextShirt}
+              >
                 {">"}
               </button>
             </div>
           </div>
           <div className="LargeBox">
             <div className="ArrowContainer">
-              <button className="ArrowButton" onClick={handlePreviousCharacter}>
+              <button
+                className="ArrowButton DnDArrow"
+                onClick={handlePreviousCharacter}
+              >
                 {"<"}
               </button>
               <div className="CharacterInfo">
@@ -206,7 +215,10 @@ const CharacterSelection = () => {
                   alt={currentCharacter.name}
                 />
               </div>
-              <button className="ArrowButton" onClick={handleNextCharacter}>
+              <button
+                className="ArrowButton DnDArrow"
+                onClick={handleNextCharacter}
+              >
                 {">"}
               </button>
             </div>
