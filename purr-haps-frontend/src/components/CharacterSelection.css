@@ -28,6 +28,11 @@
   opacity: 1;
 }
 
+.BackgroundImage.next {
+  opacity: 0.5; /* Start the next image at partial opacity */
+  transition: opacity 2.5s ease-in-out;
+}
+
 .Content {
   display: flex;
   flex-direction: column;

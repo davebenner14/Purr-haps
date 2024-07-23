@@ -41,11 +41,26 @@ const CharacterSelection = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 15000); // Change every 15 seconds
+      const nextIndex = (backgroundIndex + 1) % backgrounds.length;
+      const currentImage =
+        document.querySelectorAll(".BackgroundImage")[backgroundIndex];
+      const nextImage =
+        document.querySelectorAll(".BackgroundImage")[nextIndex];
+
+      // Make the next image partially visible
+      nextImage.classList.add("next");
+
+      // After a delay, make the next image fully visible and hide the current image
+      setTimeout(() => {
+        nextImage.classList.add("visible");
+        nextImage.classList.remove("next");
+        currentImage.classList.remove("visible");
+        setBackgroundIndex(nextIndex);
+      }, 2500); // Half of the transition duration
+    }, 10000); // Change every 10 seconds
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [backgroundIndex, backgrounds.length]);
 
   const handleNextCharacter = () => {
     setCurrentCharacterIndex(
