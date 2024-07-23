@@ -57,7 +57,7 @@ const CharacterSelection = () => {
         currentImage.classList.remove("visible");
         setBackgroundIndex(nextIndex);
       }, 2500); // Half of the transition duration
-    }, 10000); // Change every 10 seconds
+    }, 15000); // Change every 15 seconds
 
     return () => clearInterval(intervalId);
   }, [backgroundIndex, backgrounds.length]);
@@ -292,39 +292,44 @@ const CharacterSelection = () => {
             </div>
           </div>
           <div className="LargeBox">
-            <div className="ArrowContainer">
-              <button
-                className="ArrowButton DnDArrow"
-                onClick={handlePreviousCharacter}
-              >
-                {"<"}
-              </button>
-              <div className="CharacterInfo">
-                <h2 className="CharacterName glow">
-                  {currentCharacter.name.split("").map((char, index) => (
-                    <span key={index}>{char}</span>
-                  ))}
-                </h2>
-                <div className="ImageWrapper">
-                  <img
-                    className="CharacterImage"
-                    src={currentCharacter.image}
-                    alt={currentCharacter.name}
-                  />
-                </div>
+            <div className="CharacterInfo">
+              <h2 className="CharacterName glow">
+                {currentCharacter.name.split("").map((char, index) => (
+                  <span key={index}>{char}</span>
+                ))}
+              </h2>
+              <div className="ImageWrapper">
+                <img
+                  className="CharacterImage"
+                  src={currentCharacter.image}
+                  alt={currentCharacter.name}
+                />
               </div>
-              <button
-                className="ArrowButton DnDArrow"
-                onClick={handleNextCharacter}
-              >
-                {">"}
-              </button>
             </div>
           </div>
           <div className="SmallBox">
             <h2 className="AttributesTitle">Attributes</h2>
             <Radar ref={chartRef} data={radarData} options={radarOptions} />
           </div>
+        </div>
+        <div className="SmallBoxArrowContainer">
+          <button
+            className="ArrowButton DnDArrow"
+            onClick={handlePreviousCharacter}
+          >
+            {"<"}
+          </button>
+          <div className="SmallBoxesContainer">
+            <div className="NewSmallBox">1</div>
+            <div className="NewSmallBox">2</div>
+            <div className="NewSmallBox">3</div>
+          </div>
+          <button
+            className="ArrowButton DnDArrow"
+            onClick={handleNextCharacter}
+          >
+            {">"}
+          </button>
         </div>
       </div>
     </div>
