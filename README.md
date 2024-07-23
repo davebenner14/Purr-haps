@@ -23,7 +23,7 @@ Here are some early-stage screenshots of the project:
   ![Landing Page](purr-haps-frontend/src/assets/screenshots/Screenshot%202024-07-04%20at%208.51.04%20PM.png)
 
 - **Character Select Page**
-  ![Character Select Page](purr-haps-frontend/src/assets/screenshots/Screenshot%202024-07-04%20at%208.51.23%20PM.png)
+  ![Character Select Page](Purr-haps/purr-haps-frontend/src/assets/screenshots/Screenshot%202024-07-04%20at%208.51.23%20PM.png)
 
 ## Live Website 🌐
 
