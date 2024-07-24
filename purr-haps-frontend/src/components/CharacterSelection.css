@@ -10,18 +10,18 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: auto; /* Enable scrolling */
-  padding: 2rem 0 10rem 0; /* Increased bottom padding for more space */
+  overflow: auto;
+  padding: 2rem 0 10rem 0;
 }
 
 .BackgroundImage {
-  position: fixed; /* Fix position to cover entire page */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Stretch to fit the screen */
-  object-position: top center; /* Ensure the top and bottom of the image are seen */
+  object-fit: cover;
+  object-position: top center;
   z-index: -1;
   opacity: 0;
   transition: opacity 5s ease-in-out;
@@ -32,7 +32,7 @@
 }
 
 .BackgroundImage.next {
-  opacity: 0.5; /* Start the next image at partial opacity */
+  opacity: 0.5;
   transition: opacity 2.5s ease-in-out;
 }
 
@@ -40,44 +40,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align content to start */
+  justify-content: flex-start;
   color: white;
   text-align: center;
-  padding-top: 2rem; /* Additional padding for top spacing */
-  padding-bottom: 2rem; /* Additional padding for bottom spacing */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .Title {
   font-family: "Dragonlord", sans-serif;
-  font-size: 7rem; /* Increased font size */
-  margin-top: 2rem; /* Top margin for spacing */
-  margin-bottom: 1rem; /* Adjusted bottom margin */
-  color: #e2c044; /* Gold-like color */
-  text-shadow: 3px 3px 0 #000, /* Black border */ -1px -1px 0 #000,
-    1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  border: 5px solid #e2c044; /* Thicker border */
+  font-size: 7rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #e2c044;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+  border: 5px solid #e2c044;
   padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 
 .Subtitle {
-  font-size: 2rem; /* Increased font size */
-  margin-bottom: 2rem; /* Bottom margin for spacing */
-  color: #e2c044; /* Gold-like color */
-  -webkit-text-stroke: 1px black; /* Black text border */
-  text-shadow: 3px 3px 0 #000, /* Black shadow */ -1px -1px 0 #000,
-    1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #e2c044;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .BoxesContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 4rem; /* Added bottom margin */
+  gap: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
 }
 
+/* Box styles */
 .SmallBox,
 .LargeBox {
   background-color: rgba(0, 0, 0, 0.7);
@@ -86,37 +88,54 @@
   position: relative;
   min-height: 300px;
   width: 300px;
-  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  border: 5px solid #e2c044; /* Thicker border */
+  border: 5px solid #e2c044;
 }
 
 .LargeBox {
+  width: 400px; /* Width of large boxes */
+  height: 550px; /* Extended height of the middle box */
+  margin-bottom: 3rem;
+}
+
+.LeftBox {
+  margin-top: 5%; /* Slightly lower stagger for left box */
   width: 400px;
-  height: 500px;
-  margin-bottom: 3rem; /* Space for small boxes */
+  height: 475px; /* Height of left box */
+}
+
+.MiddleBox {
+  width: 450px;
+  height: 600px; /* Extended height of the middle box */
+  margin-bottom: 3rem;
+}
+
+.RightBox {
+  margin-top: 8.25%; /* Slightly lower stagger for right box */
+  width: 400px;
+  height: 400px; /* Making it square */
 }
 
 .SmallBoxesContainer {
   display: flex;
   justify-content: center;
-  align-items: center; /* Align items vertically */
+  align-items: center;
   gap: 1rem;
-  margin-top: -2rem; /* Move up a bit */
+  margin-top: -1rem;
 }
 
 .NewSmallBox {
-  width: calc(400px / 3); /* Reduced width */
-  height: calc(400px / 4); /* Kept height same */
+  width: calc(350px / 3); /* Width of new small boxes */
+  height: calc(400px / 4); /* Height of new small boxes */
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #e2c044; /* Text color */
+  color: #e2c044;
   font-family: "Dragonlord", sans-serif;
   text-align: center;
 }
@@ -202,37 +221,63 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem; /* Bring arrows closer to the small boxes */
+  gap: 0.5rem;
   box-sizing: border-box;
+  position: relative;
+  top: -4rem; /* Adjusted to move the arrows up a bit */
+}
+
+.MiddleBoxArrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: -5rem; /* Adjust as needed */
 }
 
 .ArrowButton {
-  background-color: white; /* White background for large arrows */
-  color: black; /* Black color for arrow text */
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
+  background: none; /* Remove background */
+  padding: 1rem;
   cursor: pointer;
-  font-size: 2rem; /* Increased font size for larger arrows */
-  flex: 0; /* No flex grow */
-  margin: 0; /* Remove margin */
-  align-self: center; /* Center the arrows vertically */
   position: relative;
-  top: -1rem; /* Move up to center */
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white !important; /* Add border */
+}
+
+.ArrowButton::before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
 }
 
 .ArrowButton.DnDArrow {
-  font-family: "MedievalSharp", cursive;
-  border: 2px solid white; /* White border for large arrows */
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  color: black; /* Black color for arrow text */
-  transition: background-color 0.3s, color 0.3s;
+  border: none;
 }
 
-.ArrowButton.DnDArrow:hover {
-  background-color: black; /* Black background on hover */
-  color: white; /* White color for arrow text on hover */
+.ArrowButton.DnDArrow::before {
+  border-width: 1.5rem 0 1.5rem 2.5rem;
+  border-color: transparent transparent transparent white;
+}
+
+.ArrowButton.DnDArrow:hover::before {
+  border-color: transparent transparent transparent black;
+}
+
+.ArrowButton.DnDArrow.Left::before {
+  border-width: 1.5rem 2.5rem 1.5rem 0;
+  border-color: transparent white transparent transparent;
+}
+
+.ArrowButton.DnDArrow.Left:hover::before {
+  border-color: transparent black transparent transparent;
 }
 
 .AttributesTitle {

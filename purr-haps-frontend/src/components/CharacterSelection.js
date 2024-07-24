@@ -14,6 +14,8 @@ import "./CharacterSelection.css";
 import "./Glow.css";
 import Store1 from "../assets/storePageBackgrounds/Store1.png";
 import Store2 from "../assets/storePageBackgrounds/Store2.png";
+import Arrow from "./Arrow";
+import ArrowSVG from "./ArrowSVG";
 
 // Register the components from chart.js
 ChartJS.register(
@@ -231,8 +233,21 @@ const CharacterSelection = () => {
     animateText();
   }, []);
 
+  const handleArrowClick = (callback) => (e) => {
+    e.preventDefault();
+    callback();
+    const arrow = e.currentTarget;
+    if (!arrow.classList.contains("animate")) {
+      arrow.classList.add("animate");
+      setTimeout(() => {
+        arrow.classList.remove("animate");
+      }, 1600);
+    }
+  };
+
   return (
     <div className="PageContainer">
+      <ArrowSVG />
       {backgrounds.map((bg, index) => (
         <img
           key={index}
@@ -249,7 +264,7 @@ const CharacterSelection = () => {
           Select your character to begin the adventure
         </h2>
         <div className="BoxesContainer">
-          <div className="SmallBox">
+          <div className="SmallBox LeftBox">
             <div className="ShirtBox">
               <h2 className="ShirtName">{currentShirt.name}</h2>
               <div className="Sizes">
@@ -277,21 +292,17 @@ const CharacterSelection = () => {
               </div>
             </div>
             <div className="ArrowContainer">
-              <button
-                className="ArrowButton DnDArrow"
-                onClick={handlePreviousShirt}
-              >
-                {"<"}
-              </button>
-              <button
-                className="ArrowButton DnDArrow"
-                onClick={handleNextShirt}
-              >
-                {">"}
-              </button>
+              <Arrow
+                direction="left"
+                onClick={handleArrowClick(handlePreviousShirt)}
+              />
+              <Arrow
+                direction="right"
+                onClick={handleArrowClick(handleNextShirt)}
+              />
             </div>
           </div>
-          <div className="LargeBox">
+          <div className="LargeBox MiddleBox">
             <div className="CharacterInfo">
               <h2 className="CharacterName glow">
                 {currentCharacter.name.split("").map((char, index) => (
@@ -307,29 +318,25 @@ const CharacterSelection = () => {
               </div>
             </div>
           </div>
-          <div className="SmallBox">
+          <div className="SmallBox RightBox">
             <h2 className="AttributesTitle">Attributes</h2>
             <Radar ref={chartRef} data={radarData} options={radarOptions} />
           </div>
         </div>
-        <div className="SmallBoxArrowContainer">
-          <button
-            className="ArrowButton DnDArrow"
-            onClick={handlePreviousCharacter}
-          >
-            {"<"}
-          </button>
+        <div className="MiddleBoxArrowContainer">
+          <Arrow
+            direction="left"
+            onClick={handleArrowClick(handlePreviousCharacter)}
+          />
           <div className="SmallBoxesContainer">
             <div className="NewSmallBox">1</div>
             <div className="NewSmallBox">2</div>
             <div className="NewSmallBox">3</div>
           </div>
-          <button
-            className="ArrowButton DnDArrow"
-            onClick={handleNextCharacter}
-          >
-            {">"}
-          </button>
+          <Arrow
+            direction="right"
+            onClick={handleArrowClick(handleNextCharacter)}
+          />
         </div>
       </div>
     </div>

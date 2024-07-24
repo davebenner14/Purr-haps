@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import IntroPage from "./components/IntroPage";
 import HomePage from "./components/HomePage";
 import CharacterSelection from "./components/CharacterSelection";
+import "./index.css";
 
 function App() {
   return (
