@@ -91,7 +91,9 @@ const CharacterSelection = () => {
   };
 
   const calculateMaxSize = () => {
-    const containerWidth = document.querySelector(".Sizes").offsetWidth;
+    const container = document.querySelector(".Sizes");
+    if (!container) return 100;
+    const containerWidth = container.offsetWidth;
     const numberOfSizes = currentShirt.sizes.length;
     const maxSize = Math.min(containerWidth / numberOfSizes - 10, 100);
     return maxSize;
@@ -158,7 +160,7 @@ const CharacterSelection = () => {
         beginAtZero: true,
         max: 25,
         ticks: {
-          display: false, // Hide the default tick labels
+          display: false, // Hide the default tick label
           stepSize: 5,
           color: "white",
           font: {
@@ -320,7 +322,7 @@ const CharacterSelection = () => {
               </div>
             </div>
           </div>
-          <div className="SmallBox RightBox">
+          <div className="LargeBox RightBox">
             <h2 className="AttributesTitle">Attributes</h2>
             <Radar ref={chartRef} data={radarData} options={radarOptions} />
           </div>
@@ -331,9 +333,27 @@ const CharacterSelection = () => {
             onClick={handleArrowClick(handlePreviousCharacter)}
           />
           <div className="SmallBoxesContainer">
-            <div className="NewSmallBox">1</div>
-            <div className="NewSmallBox">2</div>
-            <div className="NewSmallBox">3</div>
+            {[-1, 0, 1].map((offset, index) => (
+              <div className="NewSmallBox" key={index}>
+                <div className="ImageWrapper small">
+                  <img
+                    className="CharacterImage small"
+                    src={
+                      characters[
+                        (currentCharacterIndex + offset + characters.length) %
+                          characters.length
+                      ].image
+                    }
+                    alt={
+                      characters[
+                        (currentCharacterIndex + offset + characters.length) %
+                          characters.length
+                      ].name
+                    }
+                  />
+                </div>
+              </div>
+            ))}
           </div>
           <Arrow
             direction="right"

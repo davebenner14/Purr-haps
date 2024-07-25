@@ -12,7 +12,6 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV=production
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -27,13 +26,17 @@ RUN npm install
 # Copy application code
 COPY --link . .
 
-
+# Build the React frontend
+RUN npm run build --prefix purr-haps-frontend
 
 # Final stage for app image
 FROM base
 
 # Copy built application
 COPY --from=build /app /app
+
+# Expose the port the app runs on
+EXPOSE 8080
 
 # Start the server by default, this can be overwritten at runtime
 CMD [ "npm", "run", "start" ]
