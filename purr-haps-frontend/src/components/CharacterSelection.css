@@ -133,7 +133,7 @@
 .RightBox {
   margin-top: 8.25%; /* Slightly lower stagger for right box */
   width: 400px;
-  height: 400px; /* Making it square */
+  height: 450px; /* Making it square */
 }
 
 .SmallBoxesContainer {

@@ -27,12 +27,12 @@ export const characters = [
     job: "Fighter",
     image: FighterImage,
     attributes: {
-      Strength: 18,
-      Dexterity: 14,
-      Constitution: 16,
-      Intelligence: 10,
-      Wisdom: 12,
-      Charisma: 13
+      STR: 18,
+      DEX: 14,
+      CON: 16,
+      INT: 10,
+      WIS: 12,
+      CHR: 13
     }
   },
   {
@@ -40,12 +40,12 @@ export const characters = [
     job: "Paladin",
     image: PaladinImage,
     attributes: {
-      Strength: 17,
-      Dexterity: 12,
-      Constitution: 15,
-      Intelligence: 10,
-      Wisdom: 14,
-      Charisma: 16
+      STR: 17,
+      DEX: 12,
+      CON: 15,
+      INT: 10,
+      WIS: 14,
+      CHR: 16
     }
   },
   {
@@ -53,12 +53,12 @@ export const characters = [
     job: "Ranger",
     image: RangerImage,
     attributes: {
-      Strength: 15,
-      Dexterity: 18,
-      Constitution: 14,
-      Intelligence: 12,
-      Wisdom: 14,
-      Charisma: 10
+      STR: 15,
+      DEX: 18,
+      CON: 14,
+      INT: 12,
+      WIS: 14,
+      CHR: 10
     }
   },
   {
@@ -66,12 +66,12 @@ export const characters = [
     job: "Rogue",
     image: RogueImage,
     attributes: {
-      Strength: 12,
-      Dexterity: 20,
-      Constitution: 13,
-      Intelligence: 14,
-      Wisdom: 10,
-      Charisma: 16
+      STR: 12,
+      DEX: 20,
+      CON: 13,
+      INT: 14,
+      WIS: 10,
+      CHR: 16
     }
   },
   {
@@ -79,12 +79,12 @@ export const characters = [
     job: "Wizard",
     image: WizardImage,
     attributes: {
-      Strength: 8,
-      Dexterity: 12,
-      Constitution: 10,
-      Intelligence: 20,
-      Wisdom: 18,
-      Charisma: 12
+      STR: 8,
+      DEX: 12,
+      CON: 10,
+      INT: 20,
+      WIS: 18,
+      CHR: 12
     }
   }
 ];

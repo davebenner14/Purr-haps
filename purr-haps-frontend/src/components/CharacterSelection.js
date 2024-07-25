@@ -125,8 +125,19 @@ const CharacterSelection = () => {
       gradient.addColorStop(1, "rgba(0, 255, 0, 0.6)"); // Green
     }
 
+    const attributeLabels = {
+      STR: "STR",
+      DEX: "DEX",
+      END: "END",
+      INT: "INT",
+      FTH: "FTH",
+      CHR: "CHR"
+    };
+
     return {
-      labels: Object.keys(character.attributes),
+      labels: Object.keys(character.attributes).map(
+        (attr) => attributeLabels[attr] || attr
+      ),
       datasets: [
         {
           label: character.name,
@@ -190,6 +201,9 @@ const CharacterSelection = () => {
           color: "white"
         }
       },
+      tooltip: {
+        enabled: false
+      },
       afterDraw: (chart) => {
         const ctx = chart.ctx;
         chart.data.datasets.forEach((dataset) => {
@@ -200,7 +214,7 @@ const CharacterSelection = () => {
             ctx.fillStyle = "white";
             ctx.font = "bold 12px Arial";
             ctx.textAlign = "center";
-            ctx.fillText(value, x, y - 10); // Position the value below the point
+            ctx.fillText(value, x, y - 10); // Position the value above the point
           });
         });
       }
@@ -322,7 +336,7 @@ const CharacterSelection = () => {
               </div>
             </div>
           </div>
-          <div className="LargeBox RightBox">
+          <div className="LargeBox RightBox LowerBox">
             <h2 className="AttributesTitle">Attributes</h2>
             <Radar ref={chartRef} data={radarData} options={radarOptions} />
           </div>
