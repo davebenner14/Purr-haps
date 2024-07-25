@@ -1,3 +1,6 @@
+/* Import the Patrick Hand font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
 @font-face {
   font-family: "Dragonlord";
   src: url("../assets/fonts/DragonlordPersonalUseOnlyRegular-PKxzm.otf")
@@ -79,6 +82,20 @@
   position: relative;
 }
 
+.LeftBoxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ArrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* Spread out the arrows */
+  margin-bottom: 1rem;
+}
+
 /* Box styles */
 .SmallBox,
 .LargeBox {
@@ -102,7 +119,7 @@
 }
 
 .LeftBox {
-  margin-top: 5%; /* Slightly lower stagger for left box */
+  /* margin-top: 5%;  */
   width: 400px;
   height: 475px; /* Height of left box */
 }
@@ -151,7 +168,6 @@
 
 .ShirtName {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .Sizes {
@@ -203,18 +219,6 @@
   max-height: 100%;
   object-fit: contain;
   border-radius: 10px;
-}
-
-.ArrowContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 1rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  box-sizing: border-box;
 }
 
 .SmallBoxArrowContainer {
@@ -292,6 +296,11 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 300px;
+  margin-top: 10px;
+  font-family: "Patrick Hand", sans-serif; /* Use the custom font */
+  font-size: 2rem; /* Adjust the font size as needed */
+  text-align: center;
 }
 
 .AddToCartButton:hover {

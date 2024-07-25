@@ -264,42 +264,44 @@ const CharacterSelection = () => {
           Select your character to begin the adventure
         </h2>
         <div className="BoxesContainer">
-          <div className="SmallBox LeftBox">
-            <div className="ShirtBox">
-              <h2 className="ShirtName">{currentShirt.name}</h2>
-              <div className="Sizes">
-                {currentShirt.sizes.map((size, idx) => (
-                  <span
-                    key={idx}
-                    className={`Size ${
-                      selectedSize === size ? "selected" : ""
-                    }`}
-                    onClick={() => handleSizeSelect(size)}
-                  >
-                    <span>{size}</span>
-                  </span>
-                ))}
-              </div>
-              <div className="ImageWrapper">
-                <img
-                  className="ShirtImage"
-                  src={currentShirt.image}
-                  alt={currentShirt.name}
-                />
-              </div>
-              <div className="ShirtDetails">
-                <button className="AddToCartButton">Add to Cart</button>
-              </div>
-            </div>
+          <div className="LeftBoxContainer">
             <div className="ArrowContainer">
               <Arrow
                 direction="left"
                 onClick={handleArrowClick(handlePreviousShirt)}
               />
+              <h2 className="ShirtName">{currentShirt.name}</h2>
               <Arrow
                 direction="right"
                 onClick={handleArrowClick(handleNextShirt)}
               />
+            </div>
+            <div className="SmallBox LeftBox">
+              <div className="ShirtBox">
+                <div className="Sizes">
+                  {currentShirt.sizes.map((size, idx) => (
+                    <span
+                      key={idx}
+                      className={`Size ${
+                        selectedSize === size ? "selected" : ""
+                      }`}
+                      onClick={() => handleSizeSelect(size)}
+                    >
+                      <span>{size}</span>
+                    </span>
+                  ))}
+                </div>
+                <div className="ImageWrapper">
+                  <img
+                    className="ShirtImage"
+                    src={currentShirt.image}
+                    alt={currentShirt.name}
+                  />
+                </div>
+                <div className="ShirtDetails">
+                  <button className="AddToCartButton">Add to Cart</button>
+                </div>
+              </div>
             </div>
           </div>
           <div className="LargeBox MiddleBox">
