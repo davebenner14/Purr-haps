@@ -126,12 +126,12 @@ const CharacterSelection = () => {
     }
 
     const attributeLabels = {
-      STR: "STR",
-      DEX: "DEX",
-      END: "END",
-      INT: "INT",
-      FTH: "FTH",
-      CHR: "CHR"
+      strength: "STR",
+      dexterity: "DEX",
+      constitution: "CON",
+      intelligence: "INT",
+      wisdom: "WIS",
+      charisma: "CHR"
     };
 
     return {
@@ -171,7 +171,7 @@ const CharacterSelection = () => {
         beginAtZero: true,
         max: 25,
         ticks: {
-          display: false, // Hide the default tick label
+          display: false, // Hide the default tick labels
           stepSize: 5,
           color: "white",
           font: {
@@ -203,21 +203,55 @@ const CharacterSelection = () => {
       },
       tooltip: {
         enabled: false
-      },
-      afterDraw: (chart) => {
-        const ctx = chart.ctx;
-        chart.data.datasets.forEach((dataset) => {
-          const meta = chart.getDatasetMeta(0);
-          meta.data.forEach((point, index) => {
-            const { x, y } = point.tooltipPosition();
-            const value = dataset.data[index];
-            ctx.fillStyle = "white";
-            ctx.font = "bold 12px Arial";
-            ctx.textAlign = "center";
-            ctx.fillText(value, x, y - 10); // Position the value above the point
-          });
-        });
       }
+    }
+  };
+
+  // Custom plugin to draw values on the radar chart
+  const drawValuesPlugin = {
+    id: "drawValues",
+    afterDraw: (chart) => {
+      const ctx = chart.ctx;
+      chart.data.datasets.forEach((dataset) => {
+        const meta = chart.getDatasetMeta(0);
+        meta.data.forEach((point, index) => {
+          const { x, y } = point.tooltipPosition();
+          const value = dataset.data[index];
+          const angle =
+            point.angle ||
+            Math.atan2(
+              y - chart.chartArea.centerY,
+              x - chart.chartArea.centerX
+            );
+          const offset = 20; // Base offset value
+          let xOffset = x + Math.cos(angle) * offset;
+          let yOffset = y + Math.sin(angle) * offset;
+
+          // Apply specific adjustments based on the angle to fine-tune the positioning
+          if (index === 1) {
+            // DEX
+            xOffset += 10;
+            yOffset += 10;
+          } else if (index === 4) {
+            // WIS
+            xOffset += 10;
+            yOffset += 10;
+          } else if (index === 2) {
+            // CON
+            xOffset -= 5;
+            yOffset -= 5;
+          } else if (index === 3) {
+            // INT
+            xOffset -= 5;
+            yOffset -= 5;
+          }
+
+          ctx.fillStyle = "white";
+          ctx.font = "bold 12px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText(value, xOffset, yOffset); // Position the value outside the point
+        });
+      });
     }
   };
 
@@ -338,7 +372,12 @@ const CharacterSelection = () => {
           </div>
           <div className="LargeBox RightBox LowerBox">
             <h2 className="AttributesTitle">Attributes</h2>
-            <Radar ref={chartRef} data={radarData} options={radarOptions} />
+            <Radar
+              ref={chartRef}
+              data={radarData}
+              options={radarOptions}
+              plugins={[drawValuesPlugin]}
+            />
           </div>
         </div>
         <div className="MiddleBoxArrowContainer">
