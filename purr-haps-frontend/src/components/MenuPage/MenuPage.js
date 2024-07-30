@@ -1,10 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../../assets/images/HomeBackground.jpeg";
-import menuSelectionImage from "../../assets/images/MenuSelection.png";
+
+import backgroundImage from "../../assets/MenuPage/Menu Pg Background (1).png";
+import menuSignImage from "../../assets/MenuPage/Menu Sign.png";
+import signTextImage from "../../assets/MenuPage/Sign Text.png";
+import barTableImage from "../../assets/MenuPage/Bar Table.png";
+import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
+
 import "./MenuPage.css";
-import "./MenuSelection.css";
-import "./CatGuy.css";
 
 const MenuPage = () => {
   const navigate = useNavigate();
@@ -18,14 +21,13 @@ const MenuPage = () => {
       <img
         className="BackgroundImage"
         src={backgroundImage}
-        alt="Home Background"
+        alt="Menu Page Background"
       />
+      <img className="PercImage" src={percImage} alt="Perc" />
+      <img className="BarTableImage" src={barTableImage} alt="Bar Table" />
+      <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" />
+      <img className="SignTextImage" src={signTextImage} alt="Sign Text" />
       <div className="MenuSelectionContainer">
-        <img
-          src={menuSelectionImage}
-          alt="Menu Selection Background"
-          className="MenuSelectionImage"
-        />
         <button
           className="MenuButton MenuButton1"
           onClick={() => handleButtonClick("/menu1")}

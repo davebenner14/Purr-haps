@@ -7,7 +7,7 @@ const IntroPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/home");
+    navigate("/MenuPage");
   };
 
   return (

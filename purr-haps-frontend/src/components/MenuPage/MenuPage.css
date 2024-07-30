@@ -1,4 +1,6 @@
-.body {
+/* MenuPage.css */
+
+body {
   margin: 0;
   padding: 0;
   font-family: "MedievalSharp", cursive;
@@ -9,52 +11,64 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: url("../../assets/MenuPage/Menu Pg Background (1).png") no-repeat
+    center center;
+  background-size: cover;
 }
 
-.BackgroundImage {
+.BackgroundImage,
+.PercImage,
+.BarTableImage,
+.MenuSignImage,
+.SignTextImage {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
 }
 
-.ButtonContainer {
+.PercImage {
+  z-index: 2; /* Ensure the Perc image is above the background but below the bar table */
+}
+
+.BarTableImage {
+  z-index: 3; /* Ensure the bar table is above the Perc image */
+}
+
+.MenuSignImage {
+  z-index: 4; /* Ensure the sign is above the bar table */
+}
+
+.SignTextImage {
+  z-index: 5; /* Ensure the text is above the sign */
+}
+
+.MenuSelectionContainer {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 65%; /* Adjust as necessary to align with the sign */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 6; /* Ensure the buttons are above the sign */
 }
 
-.Button {
-  background-color: #864d42;
+.MenuButton {
+  background-color: #864d42; /* New button styling */
   color: white;
   border: 4px solid black;
-  padding: 10px 30px;
-  font-size: 16px;
+  padding: 15px 40px; /* Adjust padding for better fit */
+  font-size: 20px; /* Adjust font size for better readability */
   cursor: pointer;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  margin: 10px;
   border-radius: 15px;
-  z-index: 10;
+  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
-.Button:hover {
+.MenuButton:hover {
   background-color: rgba(134, 77, 66, 0.8);
-}
-
-.Button1 {
-  top: 40.3vh;
-  left: 78.2vw;
-}
-
-.Button2 {
-  top: 61vh;
-  left: 78.2vw;
-}
-
-.Button3 {
-  top: 81.5vh;
-  left: 78.2vw;
 }
