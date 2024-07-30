@@ -117,14 +117,6 @@ const CharacterSelection = () => {
   }, [currentShirtIndex, currentShirt.sizes.length]);
 
   const getChartData = (character) => {
-    const ctx = chartRef.current && chartRef.current.ctx;
-    const gradient = ctx ? ctx.createLinearGradient(0, 0, 0, 400) : null;
-    if (gradient) {
-      gradient.addColorStop(0, "rgba(255, 0, 0, 0.6)"); // Red
-      gradient.addColorStop(0.5, "rgba(255, 255, 0, 0.6)"); // Yellow
-      gradient.addColorStop(1, "rgba(0, 255, 0, 0.6)"); // Green
-    }
-
     const attributeLabels = {
       strength: "STR",
       dexterity: "DEX",
@@ -134,6 +126,8 @@ const CharacterSelection = () => {
       charisma: "CHR"
     };
 
+    const dataValues = Object.values(character.attributes);
+
     return {
       labels: Object.keys(character.attributes).map(
         (attr) => attributeLabels[attr] || attr
@@ -141,8 +135,8 @@ const CharacterSelection = () => {
       datasets: [
         {
           label: character.name,
-          data: Object.values(character.attributes),
-          backgroundColor: gradient || "rgba(54, 162, 235, 0.2)",
+          data: dataValues,
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
           borderColor: "rgba(0, 0, 0, 1)", // Black border color for points
           borderWidth: 2,
           pointBackgroundColor: "rgba(255, 255, 255, 1)" // White point color
@@ -150,18 +144,6 @@ const CharacterSelection = () => {
       ]
     };
   };
-
-  useEffect(() => {
-    const ctx = chartRef.current && chartRef.current.ctx;
-    if (ctx) {
-      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, "rgba(255, 0, 0, 0.6)"); // Red
-      gradient.addColorStop(0.5, "rgba(255, 255, 0, 0.6)"); // Yellow
-      gradient.addColorStop(1, "rgba(0, 255, 0, 0.6)"); // Green
-      chartRef.current.data.datasets[0].backgroundColor = gradient;
-      chartRef.current.update();
-    }
-  }, [currentCharacterIndex]);
 
   const radarData = getChartData(currentCharacter);
 
@@ -252,6 +234,58 @@ const CharacterSelection = () => {
           ctx.fillText(value, xOffset, yOffset); // Position the value outside the point
         });
       });
+    }
+  };
+
+  const radialGradientPlugin = {
+    id: "radialGradientPlugin",
+    beforeDatasetsDraw: (chart) => {
+      const ctx = chart.ctx;
+      const { left, top, right, bottom } = chart.chartArea;
+      const width = right - left;
+      const height = bottom - top;
+      const centerX = left + width / 2;
+      const centerY = top + height / 2;
+
+      // Start clipping path
+      ctx.save();
+      ctx.beginPath();
+
+      // Move to the first point
+      const firstPoint = chart.getDatasetMeta(0).data[0].getCenterPoint();
+      ctx.moveTo(firstPoint.x, firstPoint.y);
+
+      // Draw lines to the rest of the points
+      chart.getDatasetMeta(0).data.forEach((point, index) => {
+        if (index > 0) {
+          // Skip the first point as it is already used in moveTo
+          const { x, y } = point.getCenterPoint();
+          ctx.lineTo(x, y);
+        }
+      });
+
+      // Close the path and clip
+      ctx.closePath();
+      ctx.clip();
+
+      const gradient = ctx.createRadialGradient(
+        centerX,
+        centerY,
+        0,
+        centerX,
+        centerY,
+        Math.min(width, height) / 2
+      );
+      gradient.addColorStop(0, "rgba(0, 255, 0, 0.6)"); // Green
+      gradient.addColorStop(0.2, "rgba(255, 255, 0, 0.6)"); // Yellow
+      gradient.addColorStop(0.4, "rgba(255, 165, 0, 0.6)"); // Orange
+      gradient.addColorStop(0.6, "rgba(255, 69, 0, 0.6)"); // Red-Orange
+      gradient.addColorStop(0.8, "rgba(255, 0, 0, 0.6)"); // Red
+
+      ctx.globalCompositeOperation = "destination-over";
+      ctx.fillStyle = gradient;
+      ctx.fillRect(left, top, width, height);
+      ctx.restore();
     }
   };
 
@@ -376,7 +410,7 @@ const CharacterSelection = () => {
               ref={chartRef}
               data={radarData}
               options={radarOptions}
-              plugins={[drawValuesPlugin]}
+              plugins={[drawValuesPlugin, radialGradientPlugin]}
             />
           </div>
         </div>
