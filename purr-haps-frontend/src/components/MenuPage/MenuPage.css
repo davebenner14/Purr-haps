@@ -106,5 +106,5 @@ body {
 }
 
 .MenuPage .MenuText:hover {
-  color: rgba(134, 77, 66, 0.8); /* Change text color on hover */
+  color: black; /* Change text color on hover */
 }

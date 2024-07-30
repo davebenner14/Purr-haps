@@ -34,24 +34,24 @@ const MenuPage = () => {
       <img className="ButtonImage2" src={buttonImage2} alt="Button 2" />
       <img className="ButtonImage3" src={buttonImage3} alt="Button 3" />
       <div className="MenuTextContainer">
-        <p
-          className="MenuText MenuText1"
+        <div
+          className="MenuButtonContainer"
           onClick={() => handleButtonClick("/menu1")}
         >
-          Character Selection
-        </p>
-        <p
-          className="MenuText MenuText2"
+          <p className="MenuText MenuText1">Character Selection</p>
+        </div>
+        <div
+          className="MenuButtonContainer"
           onClick={() => handleButtonClick("/menu2")}
         >
-          FAQ
-        </p>
-        <p
-          className="MenuText MenuText3"
+          <p className="MenuText MenuText2">FAQ</p>
+        </div>
+        <div
+          className="MenuButtonContainer"
           onClick={() => handleButtonClick("/menu3")}
         >
-          Contact Us
-        </p>
+          <p className="MenuText MenuText3">Contact Us</p>
+        </div>
       </div>
     </div>
   );
