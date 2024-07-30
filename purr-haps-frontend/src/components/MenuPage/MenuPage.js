@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/images/HomeBackground.jpeg";
-import menuSelectionImage from "../assets/images/MenuSelection.png";
-import "./HomePageStyles.css";
+import backgroundImage from "../../assets/images/HomeBackground.jpeg";
+import menuSelectionImage from "../../assets/images/MenuSelection.png";
+import "./MenuPage.css";
 import "./MenuSelection.css";
 import "./CatGuy.css";
 
-const HomePage = () => {
+const MenuPage = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = (path) => {
@@ -49,4 +49,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default MenuPage;
