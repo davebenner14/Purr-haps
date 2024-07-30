@@ -1,5 +1,3 @@
-/* MenuPage.css */
-
 body {
   margin: 0;
   padding: 0;
@@ -20,7 +18,8 @@ body {
 .PercImage,
 .BarTableImage,
 .MenuSignImage,
-.SignTextImage {
+.SignTextImage,
+.ButtonImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -45,6 +44,10 @@ body {
   z-index: 5; /* Ensure the text is above the sign */
 }
 
+.ButtonImage {
+  z-index: 6; /* Ensure the button image is above the sign text */
+}
+
 .MenuSelectionContainer {
   position: absolute;
   top: 65%; /* Adjust as necessary to align with the sign */
@@ -53,7 +56,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 6; /* Ensure the buttons are above the sign */
+  z-index: 7; /* Ensure the buttons are above the button image */
 }
 
 .MenuButton {

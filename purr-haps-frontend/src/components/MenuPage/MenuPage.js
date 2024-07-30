@@ -6,6 +6,7 @@ import menuSignImage from "../../assets/MenuPage/Menu Sign.png";
 import signTextImage from "../../assets/MenuPage/Sign Text.png";
 import barTableImage from "../../assets/MenuPage/Bar Table.png";
 import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
+import buttonImage from "../../assets/MenuPage/Button.png";
 
 import "./MenuPage.css";
 
@@ -27,6 +28,7 @@ const MenuPage = () => {
       <img className="BarTableImage" src={barTableImage} alt="Bar Table" />
       <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" />
       <img className="SignTextImage" src={signTextImage} alt="Sign Text" />
+      <img className="ButtonImage" src={buttonImage} alt="Button" />
       <div className="MenuSelectionContainer">
         <button
           className="MenuButton MenuButton1"
