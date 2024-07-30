@@ -1,3 +1,5 @@
+/* MenuPage.css */
+
 body {
   margin: 0;
   padding: 0;
@@ -19,7 +21,9 @@ body {
 .BarTableImage,
 .MenuSignImage,
 .SignTextImage,
-.ButtonImage {
+.ButtonImage,
+.ButtonImage2,
+.ButtonImage3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,6 +50,16 @@ body {
 
 .ButtonImage {
   z-index: 6; /* Ensure the button image is above the sign text */
+}
+
+.ButtonImage2 {
+  z-index: 6;
+  top: 120px; /* Move Button 2 down by 10px */
+}
+
+.ButtonImage3 {
+  z-index: 6;
+  top: 240px; /* Move Button 3 down by 20px */
 }
 
 .MenuSelectionContainer {
