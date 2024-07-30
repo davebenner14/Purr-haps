@@ -42,13 +42,13 @@ const MenuPage = () => {
         </div>
         <div
           className="MenuButtonContainer"
-          onClick={() => handleButtonClick("/menu2")}
+          onClick={() => handleButtonClick("/bio")}
         >
-          <p className="MenuText MenuText2">FAQ</p>
+          <p className="MenuText MenuText2">Bio</p>
         </div>
         <div
           className="MenuButtonContainer"
-          onClick={() => handleButtonClick("/menu3")}
+          onClick={() => handleButtonClick("/contact")}
         >
           <p className="MenuText MenuText3">Contact Us</p>
         </div>
