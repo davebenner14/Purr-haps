@@ -6,7 +6,7 @@ body {
   font-family: "MedievalSharp", cursive;
 }
 
-.PageContainer {
+.PageContainer.MenuPage {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -16,14 +16,14 @@ body {
   background-size: cover;
 }
 
-.BackgroundImage,
-.PercImage,
-.BarTableImage,
-.MenuSignImage,
-.SignTextImage,
-.ButtonImage,
-.ButtonImage2,
-.ButtonImage3 {
+.MenuPage .BackgroundImage,
+.MenuPage .PercImage,
+.MenuPage .BarTableImage,
+.MenuPage .MenuSignImage,
+.MenuPage .SignTextImage,
+.MenuPage .ButtonImage,
+.MenuPage .ButtonImage2,
+.MenuPage .ButtonImage3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -32,60 +32,79 @@ body {
   object-fit: cover;
 }
 
-.PercImage {
+.MenuPage .PercImage {
   z-index: 2; /* Ensure the Perc image is above the background but below the bar table */
 }
 
-.BarTableImage {
+.MenuPage .BarTableImage {
   z-index: 3; /* Ensure the bar table is above the Perc image */
 }
 
-.MenuSignImage {
+.MenuPage .MenuSignImage {
   z-index: 4; /* Ensure the sign is above the bar table */
 }
 
-.SignTextImage {
+.MenuPage .SignTextImage {
   z-index: 5; /* Ensure the text is above the sign */
 }
 
-.ButtonImage {
+.MenuPage .ButtonImage {
   z-index: 6; /* Ensure the button image is above the sign text */
-}
-
-.ButtonImage2 {
-  z-index: 6;
-  top: 120px; /* Move Button 2 down by 10px */
-}
-
-.ButtonImage3 {
-  z-index: 6;
-  top: 240px; /* Move Button 3 down by 20px */
-}
-
-.MenuSelectionContainer {
-  position: absolute;
-  top: 65%; /* Adjust as necessary to align with the sign */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 7; /* Ensure the buttons are above the button image */
 }
 
-.MenuButton {
-  background-color: #864d42; /* New button styling */
+.MenuPage .ButtonImage2 {
+  z-index: 6;
+  top: 65%; /* Adjust as necessary */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MenuPage .ButtonImage3 {
+  z-index: 6;
+  top: 80%; /* Adjust as necessary */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MenuPage .MenuTextContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8; /* Ensure the text is above the button image */
+  width: 100%;
+  height: 100%;
+}
+
+.MenuPage .MenuText {
   color: white;
-  border: 4px solid black;
-  padding: 15px 40px; /* Adjust padding for better fit */
-  font-size: 20px; /* Adjust font size for better readability */
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 15px;
-  text-align: center;
-  transition: background-color 0.3s ease;
+  font-size: 2vw; /* Adjust font size for better readability */
+  margin: 0; /* Space between text */
+  position: absolute; /* Ensure absolute positioning */
+  width: auto; /* Adjust width as necessary */
+  cursor: pointer; /* Ensure pointer cursor for clickable text */
 }
 
-.MenuButton:hover {
-  background-color: rgba(134, 77, 66, 0.8);
+.MenuPage .MenuText1 {
+  top: 43% !important; /* Adjust as necessary to align with ButtonImage */
+  left: 79.5% !important;
+  transform: translate(-50%, -50%);
+}
+
+.MenuPage .MenuText2 {
+  top: 58% !important; /* Adjust as necessary to align with ButtonImage2 */
+  left: 79.5% !important;
+  transform: translate(-50%, -50%);
+}
+
+.MenuPage .MenuText3 {
+  top: 73% !important; /* Adjust as necessary to align with ButtonImage3 */
+  left: 79.5% !important;
+  transform: translate(-50%, -50%);
+}
+
+.MenuPage .MenuText:hover {
+  color: rgba(134, 77, 66, 0.8); /* Change text color on hover */
 }
