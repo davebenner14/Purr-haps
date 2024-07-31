@@ -5,7 +5,7 @@ import {
   Route,
   useLocation
 } from "react-router-dom";
-import IntroPage from "./components/IntroPage";
+import IntroPage from "./components/IntroPage/IntroPage";
 import CharacterSelection from "./components/CharacterSelect/CharacterSelection";
 import MenuPage from "./components/MenuPage/MenuPage";
 import BioPage from "./components/BioPage/BioPage";
@@ -28,7 +28,7 @@ function App() {
           path="/"
           element={
             <>
-              <PageLogger pageName="IntroPage" />
+              <PageLogger pageName="/IntroPage" />
               <IntroPage />
             </>
           }
