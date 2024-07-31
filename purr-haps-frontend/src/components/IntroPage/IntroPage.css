@@ -8,6 +8,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  transition: transform 2s ease-in-out; /* Zoom-in transition */
 }
 
 .TavernImage {
@@ -18,17 +19,6 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-}
-
-.CharacterImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 800px; /* Set to the intrinsic width of the image */
-  height: 600px; /* Set to the intrinsic height of the image */
-  z-index: 2;
-  opacity: 0; /* Start invisible */
-  animation: fadeIn 1s forwards 7s; /* Fade in after 7 seconds */
 }
 
 .GateImage {
@@ -49,6 +39,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 4;
+  transition: opacity 1.5s ease-out; /* Fade-out transition */
 }
 
 .FlashingTextContainer {
@@ -61,6 +52,7 @@
   border: 3px solid #fff;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 1.5s ease-out; /* Fade-out transition */
 }
 
 .FlashingText {
@@ -80,6 +72,27 @@
   object-fit: cover;
   z-index: 6;
   animation: catWalk 30s infinite;
+}
+
+.SilhouetteImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 29s infinite; /* Total duration of one cycle: 7s fade in + 15s wait + 7s fade out */
+  animation-delay: 7s; /* Initial delay before starting the animation */
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.zoom-in {
+  transform: scale(1.5); /* Zoom-in scale */
 }
 
 @keyframes flash {
@@ -117,8 +130,18 @@
   }
 }
 
-@keyframes fadeIn {
-  to {
+@keyframes fadeInOut {
+  0%,
+  10% {
+    opacity: 0;
+  }
+  35% {
     opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
