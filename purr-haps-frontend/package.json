@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-sw": "workbox generateSW"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +39,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "workbox": {
+    "globDirectory": "build/",
+    "globPatterns": [
+      "**/*.{html,js,css,svg}"
+    ],
+    "swDest": "build/service-worker.js",
+    "swSrc": "src/service-worker.js"
+  },
+  "devDependencies": {
+    "workbox-cli": "^7.1.0"
   }
 }
