@@ -48,32 +48,32 @@ body {
   z-index: 5; /* Ensure the text is above the sign */
 }
 
-.MenuPage .ButtonImage {
-  z-index: 6; /* Ensure the button image is above the sign text */
+.MenuPage .ButtonImage,
+.MenuPage .ButtonImage2,
+.MenuPage .ButtonImage3 {
+  z-index: 6; /* Ensure the button images are above the sign text */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.MenuPage .ButtonImage {
+  top: 50%; /* Adjust top position to center */
+}
+
 .MenuPage .ButtonImage2 {
-  z-index: 6;
   top: 65%; /* Adjust as necessary */
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .MenuPage .ButtonImage3 {
-  z-index: 6;
   top: 80%; /* Adjust as necessary */
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .MenuPage .MenuTextContainer {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 8; /* Ensure the text is above the button image */
+  z-index: 7; /* Adjust z-index for the text container */
   width: 100%;
   height: 100%;
 }
@@ -81,30 +81,35 @@ body {
 .MenuPage .MenuText {
   color: white;
   font-size: 2vw; /* Adjust font size for better readability */
-  margin: 0; /* Space between text */
+  margin: 0; /* Remove default margin */
   position: absolute; /* Ensure absolute positioning */
   width: auto; /* Adjust width as necessary */
   cursor: pointer; /* Ensure pointer cursor for clickable text */
 }
 
-.MenuPage .MenuText1 {
-  top: 43% !important; /* Adjust as necessary to align with ButtonImage */
-  left: 79.5% !important;
+.MenuPage .MenuText1,
+.MenuPage .MenuText2,
+.MenuPage .MenuText3 {
+  left: 79.5%;
   transform: translate(-50%, -50%);
+}
+
+.MenuPage .MenuText1 {
+  top: 43%;
 }
 
 .MenuPage .MenuText2 {
-  top: 58% !important; /* Adjust as necessary to align with ButtonImage2 */
-  left: 79.5% !important;
-  transform: translate(-50%, -50%);
+  top: 58%;
 }
 
 .MenuPage .MenuText3 {
-  top: 73% !important; /* Adjust as necessary to align with ButtonImage3 */
-  left: 79.5% !important;
-  transform: translate(-50%, -50%);
+  top: 73%;
 }
 
 .MenuPage .MenuText:hover {
   color: black; /* Change text color on hover */
+}
+
+.MenuButtonContainer:hover .ButtonImage {
+  content: url("../../assets/MenuSign/PH_SignButtons_Highlight.png"); /* Path for hover state */
 }
