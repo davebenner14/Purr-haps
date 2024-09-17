@@ -47,8 +47,9 @@ body {
 /* Container for Button 1 */
 .MenuButtonContainer {
   position: absolute;
-  top: 50%; /* Adjust as needed */
-  left: 50%; /* Adjust as needed */
+  z-index: 6;
+  top: 60%; /* Adjust to place Button 1 in the correct spot */
+  left: 50%; /* Adjust to place Button 1 in the correct spot */
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
@@ -56,28 +57,18 @@ body {
 /* Button 1's original size */
 .ButtonImage {
   display: block;
-  width: auto; /* Maintain original width */
-  height: auto; /* Maintain original height */
+  width: auto;
+  height: auto;
+  max-width: none; /* Do not shrink */
   object-fit: contain;
+  pointer-events: visiblePainted; /* Only clickable on visible part of the image */
 }
 
-/* Commented out styles for buttons 2-4 */
-/*
-.MenuPage .MenuButtonContainer:nth-child(2) {
-  top: 60%;
-  left: 40%;
-  transform: translate(-50%, -50%);
+.MenuButtonContainer:hover .ButtonImage {
+  cursor: pointer;
 }
 
-.MenuPage .MenuButtonContainer:nth-child(3) {
-  top: 70%;
-  left: 40%;
-  transform: translate(-50%, -50%);
+/* Fix hover highlighting only on visible parts of the button */
+.ButtonImage:hover {
+  cursor: pointer;
 }
-
-.MenuPage .MenuButtonContainer:nth-child(4) {
-  top: 80%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-}
-*/

@@ -9,15 +9,7 @@ import barTableImage from "../../assets/MenuPage/Bar Table.png";
 import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
 
 import button1Image from "../../assets/MenuAndButtons/Button 1.png";
-// Commented out buttons 2-4 for now
-// import button2Image from "../../assets/MenuAndButtons/Button 2.png";
-// import button3Image from "../../assets/MenuAndButtons/Button 3.png";
-// import button4Image from "../../assets/MenuAndButtons/Button 4.png";
-
 import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png";
-// import lightUp2Image from "../../assets/MenuAndButtons/Light up 2.png";
-// import lightUp3Image from "../../assets/MenuAndButtons/Light up 3.png";
-// import lightUp4Image from "../../assets/MenuAndButtons/Light up 4.png";
 
 import "./MenuPage.css";
 
