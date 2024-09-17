@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Restore the other assets
+// Import the necessary assets
 import backgroundImage from "../../assets/MenuPage/Menu Pg Background (1).png";
 import menuSignImage from "../../assets/MenuAndButtons/Menu Sign.png";
 import signTextImage from "../../assets/MenuPage/Sign Text.png";
@@ -34,7 +34,7 @@ const MenuPage = () => {
       <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" />
       <img className="SignTextImage" src={signTextImage} alt="Sign Text" />
 
-      {/* Only focusing on Button 1 */}
+      {/* Button 1 */}
       <div
         className="MenuButtonContainer"
         onClick={handleButtonClick}

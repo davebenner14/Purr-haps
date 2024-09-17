@@ -48,27 +48,20 @@ body {
 .MenuButtonContainer {
   position: absolute;
   z-index: 6;
-  top: 60%; /* Adjust to place Button 1 in the correct spot */
-  left: 50%; /* Adjust to place Button 1 in the correct spot */
-  transform: translate(-50%, -50%);
+  /* No manual width/height to allow default size */
   cursor: pointer;
 }
 
-/* Button 1's original size */
+/* Remove any size constraints for Button 1 */
 .ButtonImage {
   display: block;
   width: auto;
   height: auto;
-  max-width: none; /* Do not shrink */
-  object-fit: contain;
-  pointer-events: visiblePainted; /* Only clickable on visible part of the image */
+  object-fit: contain; /* Keep aspect ratio, but don't force size */
+  pointer-events: visiblePainted; /* Only clickable on the visible part of the button */
 }
 
+/* Hover effect */
 .MenuButtonContainer:hover .ButtonImage {
-  cursor: pointer;
-}
-
-/* Fix hover highlighting only on visible parts of the button */
-.ButtonImage:hover {
   cursor: pointer;
 }
