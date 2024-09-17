@@ -8,8 +8,8 @@ import signTextImage from "../../assets/MenuPage/Sign Text.png";
 import barTableImage from "../../assets/MenuPage/Bar Table.png";
 import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
 
-import button1Image from "../../assets/MenuAndButtons/Button 1.png";
-import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png";
+import button1Image from "../../assets/MenuAndButtons/Button 1.png"; // Ensure this path is correct
+import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png"; // Ensure this path is correct
 
 import "./MenuPage.css";
 
@@ -34,7 +34,7 @@ const MenuPage = () => {
       <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" />
       <img className="SignTextImage" src={signTextImage} alt="Sign Text" />
 
-      {/* Button 1 */}
+      {/* Only focusing on Button 1 */}
       <div
         className="MenuButtonContainer"
         onClick={handleButtonClick}
@@ -43,7 +43,7 @@ const MenuPage = () => {
       >
         <img
           className="ButtonImage"
-          src={hoveredButton ? lightUp1Image : button1Image}
+          src={hoveredButton ? lightUp1Image : button1Image} // Ensure the correct image path
           alt="Button 1"
         />
       </div>
