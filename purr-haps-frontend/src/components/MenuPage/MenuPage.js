@@ -32,7 +32,7 @@ const MenuPage = () => {
       />
       <img className="PercImage" src={percImage} alt="Perc" />
       <img className="BarTableImage" src={barTableImage} alt="Bar Table" />
-      <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" />
+      {/* <img className="MenuSignImage" src={menuSignImage} alt="Menu Sign" /> */}
       <img className="SignTextImage" src={signTextImage} alt="Sign Text" />
 
       {/* Button 1 with hover effect */}
