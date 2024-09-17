@@ -45,7 +45,6 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/menu1")}
         onMouseEnter={() => setHoveredButton(1)}
         onMouseLeave={() => setHoveredButton(null)}
-        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
@@ -60,7 +59,6 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/bio")}
         onMouseEnter={() => setHoveredButton(2)}
         onMouseLeave={() => setHoveredButton(null)}
-        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
@@ -75,7 +73,6 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/contact")}
         onMouseEnter={() => setHoveredButton(3)}
         onMouseLeave={() => setHoveredButton(null)}
-        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
@@ -90,7 +87,6 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/settings")}
         onMouseEnter={() => setHoveredButton(4)}
         onMouseLeave={() => setHoveredButton(null)}
-        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"

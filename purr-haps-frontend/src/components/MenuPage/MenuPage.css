@@ -48,44 +48,38 @@ body {
   position: absolute;
   z-index: 6;
   cursor: pointer;
-  /* Adjust width and height to match the original image size */
 }
 
+/* Each button's width and height should match the original size of the image */
 .MenuButtonContainer img {
   display: block;
-  width: auto;
-  height: auto; /* Maintain original size */
-  pointer-events: auto; /* Allow interaction only with visible parts of the image */
+  pointer-events: auto;
+  width: 200px; /* Example size, replace with the actual width of your button images */
+  height: 80px; /* Example size, replace with the actual height */
+  object-fit: contain; /* Maintain aspect ratio */
 }
 
-.MenuButtonContainer img:hover {
-  cursor: pointer;
-}
-
-/* Button 1 positioning */
+/* Positioning the buttons separately */
 .MenuPage .MenuButtonContainer:nth-child(1) {
-  top: 50%; /* Adjust based on design */
-  left: 50%; /* Adjust based on design */
+  top: 50%; /* Position Button 1 */
+  left: 40%;
   transform: translate(-50%, -50%);
 }
 
-/* Button 2 positioning */
 .MenuPage .MenuButtonContainer:nth-child(2) {
-  top: 60%; /* Adjust based on design */
-  left: 50%;
+  top: 60%; /* Position Button 2 */
+  left: 40%;
   transform: translate(-50%, -50%);
 }
 
-/* Button 3 positioning */
 .MenuPage .MenuButtonContainer:nth-child(3) {
-  top: 70%;
-  left: 50%;
+  top: 70%; /* Position Button 3 */
+  left: 40%;
   transform: translate(-50%, -50%);
 }
 
-/* Button 4 positioning */
 .MenuPage .MenuButtonContainer:nth-child(4) {
-  top: 80%;
-  left: 50%;
+  top: 80%; /* Position Button 4 */
+  left: 40%;
   transform: translate(-50%, -50%);
 }
