@@ -21,43 +21,70 @@ body {
 .MenuPage .PercImage,
 .MenuPage .BarTableImage,
 .MenuPage .MenuSignImage,
-.MenuPage .SignTextImage {
+.MenuPage .SignTextImage,
+.MenuPage .ButtonImage {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .MenuPage .PercImage {
-  z-index: 2;
+  z-index: 2; /* Ensure the Perc image is above the background but below the bar table */
 }
 
 .MenuPage .BarTableImage {
-  z-index: 3;
+  z-index: 3; /* Ensure the bar table is above the Perc image */
 }
 
 .MenuPage .MenuSignImage {
-  z-index: 4;
+  z-index: 4; /* Ensure the sign is above the bar table */
 }
 
 .MenuPage .SignTextImage {
-  z-index: 5;
+  z-index: 5; /* Ensure the text is above the sign */
 }
 
-/* Container for Button 1 */
+/* Button setup */
 .MenuButtonContainer {
   position: absolute;
-  z-index: 6;
+  z-index: 6; /* Ensure the button images are above the sign text */
+  top: 50%; /* Adjust top position to center */
+  left: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
-  /* No manual width/height adjustments, leave the button at its natural size */
 }
 
-/* Button 1's natural size */
-.ButtonImage {
-  display: block;
+.MenuPage .ButtonImage {
   width: auto; /* Keep default width */
   height: auto; /* Keep default height */
-  object-fit: contain; /* Ensure aspect ratio is maintained */
-  pointer-events: visiblePainted; /* Only clickable on the visible part of the button */
-  visibility: visible !important; /* Ensure the image is visible */
+}
+
+.MenuPage .MenuTextContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7; /* Adjust z-index for the text container */
+  width: 100%;
+  height: 100%;
+}
+
+.MenuPage .MenuText {
+  color: white;
+  font-size: 2vw; /* Adjust font size for better readability */
+  margin: 0; /* Remove default margin */
+  position: absolute; /* Ensure absolute positioning */
+  cursor: pointer; /* Ensure pointer cursor for clickable text */
+}
+
+.MenuPage .MenuText1 {
+  top: 43%;
+  left: 79.5%;
+  transform: translate(-50%, -50%);
+}
+
+.MenuButtonContainer:hover .ButtonImage {
+  content: url("../../assets/MenuAndButtons/Light up 1.png"); /* Path for hover state */
 }
