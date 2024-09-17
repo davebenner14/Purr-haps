@@ -23,7 +23,7 @@ import "./MenuPage.css";
 
 const MenuPage = () => {
   const navigate = useNavigate();
-  const [hoveredButton, setHoveredButton] = useState(null);
+  const [hoveredButton, setHoveredButton] = useState(false);
 
   const handleButtonClick = () => {
     navigate("/menu1");
@@ -46,57 +46,15 @@ const MenuPage = () => {
       <div
         className="MenuButtonContainer"
         onClick={handleButtonClick}
-        onMouseEnter={() => setHoveredButton(1)}
-        onMouseLeave={() => setHoveredButton(null)}
+        onMouseEnter={() => setHoveredButton(true)}
+        onMouseLeave={() => setHoveredButton(false)}
       >
         <img
           className="ButtonImage"
-          src={hoveredButton === 1 ? lightUp1Image : button1Image}
+          src={hoveredButton ? lightUp1Image : button1Image}
           alt="Button 1"
         />
       </div>
-
-      {/* Commented out buttons 2-4 */}
-      {/*
-      <div
-        className="MenuButtonContainer"
-        onClick={() => handleButtonClick("/bio")}
-        onMouseEnter={() => setHoveredButton(2)}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <img
-          className="ButtonImage"
-          src={hoveredButton === 2 ? lightUp2Image : button2Image}
-          alt="Button 2"
-        />
-      </div>
-
-      <div
-        className="MenuButtonContainer"
-        onClick={() => handleButtonClick("/contact")}
-        onMouseEnter={() => setHoveredButton(3)}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <img
-          className="ButtonImage"
-          src={hoveredButton === 3 ? lightUp3Image : button3Image}
-          alt="Button 3"
-        />
-      </div>
-
-      <div
-        className="MenuButtonContainer"
-        onClick={() => handleButtonClick("/settings")}
-        onMouseEnter={() => setHoveredButton(4)}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <img
-          className="ButtonImage"
-          src={hoveredButton === 4 ? lightUp4Image : button4Image}
-          alt="Button 4"
-        />
-      </div>
-      */}
     </div>
   );
 };
