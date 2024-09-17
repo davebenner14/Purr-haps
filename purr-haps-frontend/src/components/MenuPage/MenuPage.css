@@ -22,100 +22,70 @@ body {
 .MenuPage .MenuSignImage,
 .MenuPage .SignTextImage {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .MenuPage .PercImage {
-  z-index: 2; /* Ensure the Perc image is above the background but below the bar table */
+  z-index: 2;
 }
 
 .MenuPage .BarTableImage {
-  z-index: 3; /* Ensure the bar table is above the Perc image */
+  z-index: 3;
 }
 
 .MenuPage .MenuSignImage {
-  z-index: 4; /* Ensure the sign is above the bar table */
+  z-index: 4;
 }
 
 .MenuPage .SignTextImage {
-  z-index: 5; /* Ensure the text is above the sign */
+  z-index: 5;
 }
 
 /* Update for buttons */
 .MenuButtonContainer {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   z-index: 6;
+  cursor: pointer;
+  /* Adjust width and height to match the original image size */
 }
 
 .MenuButtonContainer img {
   display: block;
+  width: auto;
+  height: auto; /* Maintain original size */
   pointer-events: auto; /* Allow interaction only with visible parts of the image */
-  position: absolute;
-  top: 50%; /* Adjust positioning */
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .MenuButtonContainer img:hover {
   cursor: pointer;
 }
 
-/* Specific button positions */
-.MenuPage .ButtonImage {
-  top: 50%; /* Adjust top position to center */
-}
-
-.MenuPage .ButtonImage2 {
-  top: 65%; /* Adjust as necessary */
-}
-
-.MenuPage .ButtonImage3 {
-  top: 80%; /* Adjust as necessary */
-}
-
-/* Text container */
-.MenuPage .MenuTextContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 7; /* Adjust z-index for the text container */
-  width: 100%;
-  height: 100%;
-}
-
-.MenuPage .MenuText {
-  color: white;
-  font-size: 2vw; /* Adjust font size for better readability */
-  margin: 0;
-  position: absolute;
-  width: auto;
-  cursor: pointer;
-}
-
-.MenuPage .MenuText1,
-.MenuPage .MenuText2,
-.MenuPage .MenuText3 {
-  left: 79.5%;
+/* Button 1 positioning */
+.MenuPage .MenuButtonContainer:nth-child(1) {
+  top: 50%; /* Adjust based on design */
+  left: 50%; /* Adjust based on design */
   transform: translate(-50%, -50%);
 }
 
-.MenuPage .MenuText1 {
-  top: 43%;
+/* Button 2 positioning */
+.MenuPage .MenuButtonContainer:nth-child(2) {
+  top: 60%; /* Adjust based on design */
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.MenuPage .MenuText2 {
-  top: 58%;
+/* Button 3 positioning */
+.MenuPage .MenuButtonContainer:nth-child(3) {
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.MenuPage .MenuText3 {
-  top: 73%;
-}
-
-.MenuPage .MenuText:hover {
-  color: black; /* Change text color on hover */
+/* Button 4 positioning */
+.MenuPage .MenuButtonContainer:nth-child(4) {
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

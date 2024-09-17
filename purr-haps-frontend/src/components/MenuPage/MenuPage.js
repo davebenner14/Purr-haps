@@ -45,14 +45,13 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/menu1")}
         onMouseEnter={() => setHoveredButton(1)}
         onMouseLeave={() => setHoveredButton(null)}
+        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
           src={hoveredButton === 1 ? lightUp1Image : button1Image}
           alt="Button 1"
-          style={{ pointerEvents: "auto" }} // Enable pointer events only on visible portions
         />
-        <p className="MenuText MenuText1">Character Selection</p>
       </div>
 
       {/* Button 2 */}
@@ -61,14 +60,13 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/bio")}
         onMouseEnter={() => setHoveredButton(2)}
         onMouseLeave={() => setHoveredButton(null)}
+        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
           src={hoveredButton === 2 ? lightUp2Image : button2Image}
           alt="Button 2"
-          style={{ pointerEvents: "auto" }}
         />
-        <p className="MenuText MenuText2">Bio</p>
       </div>
 
       {/* Button 3 */}
@@ -77,14 +75,13 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/contact")}
         onMouseEnter={() => setHoveredButton(3)}
         onMouseLeave={() => setHoveredButton(null)}
+        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
           src={hoveredButton === 3 ? lightUp3Image : button3Image}
           alt="Button 3"
-          style={{ pointerEvents: "auto" }}
         />
-        <p className="MenuText MenuText3">Contact Us</p>
       </div>
 
       {/* Button 4 */}
@@ -93,14 +90,13 @@ const MenuPage = () => {
         onClick={() => handleButtonClick("/settings")}
         onMouseEnter={() => setHoveredButton(4)}
         onMouseLeave={() => setHoveredButton(null)}
+        style={{ pointerEvents: "auto" }}
       >
         <img
           className="ButtonImage"
           src={hoveredButton === 4 ? lightUp4Image : button4Image}
           alt="Button 4"
-          style={{ pointerEvents: "auto" }}
         />
-        <p className="MenuText MenuText4">Settings</p>
       </div>
     </div>
   );
