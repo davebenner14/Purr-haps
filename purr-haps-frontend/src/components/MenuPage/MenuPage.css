@@ -49,7 +49,7 @@ body {
   position: absolute;
   z-index: 6;
   cursor: pointer;
-  /* No manual width/height adjustments, leave the button at its natural size */
+  border: 2px solid blue; /* Temporary border to help locate the button */
 }
 
 /* Button 1's natural size */
@@ -59,4 +59,5 @@ body {
   height: auto; /* Keep default height */
   object-fit: contain; /* Ensure aspect ratio is maintained */
   pointer-events: visiblePainted; /* Only clickable on the visible part of the button */
+  visibility: visible !important; /* Ensure the image is visible */
 }
