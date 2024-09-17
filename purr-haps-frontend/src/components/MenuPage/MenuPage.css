@@ -49,7 +49,7 @@ body {
   position: absolute;
   z-index: 6;
   cursor: pointer;
-  border: 2px solid blue; /* Temporary border to help locate the button */
+  /* No manual width/height adjustments, leave the button at its natural size */
 }
 
 /* Button 1's natural size */
