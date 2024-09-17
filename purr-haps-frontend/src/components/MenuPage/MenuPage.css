@@ -49,23 +49,14 @@ body {
   position: absolute;
   z-index: 6;
   cursor: pointer;
-  top: 60%; /* Temporary positioning */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid red; /* Temporary border to locate button */
-  background-color: rgba(
-    255,
-    0,
-    0,
-    0.2
-  ); /* Temporary semi-transparent background for visibility */
+  /* No manual width/height adjustments, leave the button at its natural size */
 }
 
-/* Button 1's original size */
+/* Button 1's natural size */
 .ButtonImage {
   display: block;
-  width: auto;
-  height: auto;
-  object-fit: contain; /* Maintain aspect ratio */
+  width: auto; /* Keep default width */
+  height: auto; /* Keep default height */
+  object-fit: contain; /* Ensure aspect ratio is maintained */
   pointer-events: visiblePainted; /* Only clickable on the visible part of the button */
 }

@@ -8,8 +8,8 @@ import signTextImage from "../../assets/MenuPage/Sign Text.png";
 import barTableImage from "../../assets/MenuPage/Bar Table.png";
 import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
 
-import button1Image from "../../assets/MenuAndButtons/Button 1.png"; // Ensure this path is correct
-import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png"; // Ensure this path is correct
+import button1Image from "../../assets/MenuAndButtons/Button 1.png";
+import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png";
 
 import "./MenuPage.css";
 
@@ -23,7 +23,7 @@ const MenuPage = () => {
 
   return (
     <div className="PageContainer MenuPage">
-      {/* Restore the background and other assets */}
+      {/* Background and other assets */}
       <img
         className="BackgroundImage"
         src={backgroundImage}
@@ -43,7 +43,7 @@ const MenuPage = () => {
       >
         <img
           className="ButtonImage"
-          src={hoveredButton ? lightUp1Image : button1Image} // Ensure the correct image path
+          src={hoveredButton ? lightUp1Image : button1Image}
           alt="Button 1"
         />
       </div>
