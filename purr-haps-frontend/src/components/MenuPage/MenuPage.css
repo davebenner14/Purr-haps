@@ -11,75 +11,43 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: url("../../assets/MenuPage/Menu Pg Background (1).png") no-repeat
-    center center;
-  background-size: cover;
+  background-color: #000; /* Placeholder background for now */
 }
 
-.MenuPage .BackgroundImage,
-.MenuPage .PercImage,
-.MenuPage .BarTableImage,
-.MenuPage .MenuSignImage,
-.MenuPage .SignTextImage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.MenuPage .PercImage {
-  z-index: 2;
-}
-
-.MenuPage .BarTableImage {
-  z-index: 3;
-}
-
-.MenuPage .MenuSignImage {
-  z-index: 4;
-}
-
-.MenuPage .SignTextImage {
-  z-index: 5;
-}
-
-/* Update for buttons */
+/* Container for Button 1 */
 .MenuButtonContainer {
   position: absolute;
-  z-index: 6;
+  top: 50%; /* Adjust based on your layout */
+  left: 50%; /* Adjust based on your layout */
+  transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
-/* Each button's width and height should match the original size of the image */
-.MenuButtonContainer img {
+/* Button 1's original size */
+.ButtonImage {
   display: block;
-  pointer-events: auto;
-  width: 200px; /* Example size, replace with the actual width of your button images */
-  height: 80px; /* Example size, replace with the actual height */
-  object-fit: contain; /* Maintain aspect ratio */
+  width: auto; /* Maintain original size */
+  height: auto; /* Maintain original size */
+  object-fit: contain;
 }
 
-/* Positioning the buttons separately */
-.MenuPage .MenuButtonContainer:nth-child(1) {
-  top: 50%; /* Position Button 1 */
-  left: 40%;
-  transform: translate(-50%, -50%);
-}
-
+/* Commented out styles for buttons 2-4 */
+/*
 .MenuPage .MenuButtonContainer:nth-child(2) {
-  top: 60%; /* Position Button 2 */
+  top: 60%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
 
 .MenuPage .MenuButtonContainer:nth-child(3) {
-  top: 70%; /* Position Button 3 */
+  top: 70%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
 
 .MenuPage .MenuButtonContainer:nth-child(4) {
-  top: 80%; /* Position Button 4 */
+  top: 80%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
+*/
