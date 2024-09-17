@@ -109,7 +109,3 @@ body {
 .MenuPage .MenuText:hover {
   color: black; /* Change text color on hover */
 }
-
-.MenuButtonContainer:hover .ButtonImage {
-  content: url("../../assets/MenuSign/PH_SignButtons_Highlight.png"); /* Path for hover state */
-}
