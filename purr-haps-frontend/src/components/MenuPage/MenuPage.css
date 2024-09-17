@@ -86,5 +86,5 @@ body {
 }
 
 .MenuButtonContainer:hover .ButtonImage {
-  content: url("../../assets/MenuAndButtons/Light up 1.png"); /* Path for hover state */
+  content: url("../../assets/MenuAndButtons/Light up 1.png");
 }

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Import necessary assets
 import backgroundImage from "../../assets/MenuPage/Menu Pg Background (1).png";
-import menuSignImage from "../../assets/MenuSign/PH_Sign.png";
+// import menuSignImage from "../../assets/MenuSign/PH_Sign.png";
 import signTextImage from "../../assets/MenuPage/Sign Text.png";
 import barTableImage from "../../assets/MenuPage/Bar Table.png";
 import percImage from "../../assets/MenuPage/Perc (Menu Pg) (1).png";
