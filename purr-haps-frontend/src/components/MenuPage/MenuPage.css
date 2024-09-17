@@ -20,10 +20,7 @@ body {
 .MenuPage .PercImage,
 .MenuPage .BarTableImage,
 .MenuPage .MenuSignImage,
-.MenuPage .SignTextImage,
-.MenuPage .ButtonImage,
-.MenuPage .ButtonImage2,
-.MenuPage .ButtonImage3 {
+.MenuPage .SignTextImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,15 +45,27 @@ body {
   z-index: 5; /* Ensure the text is above the sign */
 }
 
-.MenuPage .ButtonImage,
-.MenuPage .ButtonImage2,
-.MenuPage .ButtonImage3 {
-  z-index: 6; /* Ensure the button images are above the sign text */
-  top: 50%;
+/* Update for buttons */
+.MenuButtonContainer {
+  position: relative;
+  display: inline-block;
+  z-index: 6;
+}
+
+.MenuButtonContainer img {
+  display: block;
+  pointer-events: auto; /* Allow interaction only with visible parts of the image */
+  position: absolute;
+  top: 50%; /* Adjust positioning */
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.MenuButtonContainer img:hover {
+  cursor: pointer;
+}
+
+/* Specific button positions */
 .MenuPage .ButtonImage {
   top: 50%; /* Adjust top position to center */
 }
@@ -69,6 +78,7 @@ body {
   top: 80%; /* Adjust as necessary */
 }
 
+/* Text container */
 .MenuPage .MenuTextContainer {
   position: absolute;
   top: 0;
@@ -81,10 +91,10 @@ body {
 .MenuPage .MenuText {
   color: white;
   font-size: 2vw; /* Adjust font size for better readability */
-  margin: 0; /* Remove default margin */
-  position: absolute; /* Ensure absolute positioning */
-  width: auto; /* Adjust width as necessary */
-  cursor: pointer; /* Ensure pointer cursor for clickable text */
+  margin: 0;
+  position: absolute;
+  width: auto;
+  cursor: pointer;
 }
 
 .MenuPage .MenuText1,
