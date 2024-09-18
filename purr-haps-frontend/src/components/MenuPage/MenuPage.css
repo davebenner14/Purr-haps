@@ -1,3 +1,5 @@
+/* MenuPage.css */
+
 body {
   margin: 0;
   padding: 0;
@@ -14,8 +16,12 @@ body {
   background-size: cover;
 }
 
-/* Position all other assets */
-.MenuPage img {
+.MenuPage .BackgroundImage,
+.MenuPage .PercImage,
+.MenuPage .BarTableImage,
+.MenuPage .MenuSignImage,
+.MenuPage .SignTextImage,
+.MenuPage .ButtonImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,37 +30,36 @@ body {
   object-fit: cover;
 }
 
-.PercImage {
+.MenuPage .PercImage {
   z-index: 2;
 }
 
-.BarTableImage {
+.MenuPage .BarTableImage {
   z-index: 3;
 }
 
-.MenuSignImage {
+.MenuPage .MenuSignImage {
   z-index: 4;
 }
 
-.SignTextImage {
+.MenuPage .SignTextImage {
   z-index: 5;
 }
 
-/* Button setup */
-.MenuButtonContainer {
+.MenuPage .ButtonImage {
+  z-index: 6; /* Ensure the button image is on top */
+  top: 50%; /* Adjust top position to center */
+  left: 50%; /* Adjust left position to center */
+  transform: translate(-50%, -50%);
+}
+
+/* The Clickable Overlay */
+.ClickableArea {
   position: absolute;
-  z-index: 6; /* Ensure it's above the sign */
-  top: 50%; /* Adjust this value to fine-tune the position */
-  left: 50%; /* Center the button horizontally */
-  transform: translate(-50%, -50%); /* Center the button in both directions */
+  top: 36%; /* Moved up slightly */
+  left: 65%; /* Moved to the right */
+  width: 30%; /* Adjust width of the clickable area */
+  height: 10%; /* Adjust height of the clickable area */
+  z-index: 7; /* Ensure this is above the button image */
   cursor: pointer;
-}
-
-.ButtonImage {
-  width: auto;
-  height: auto;
-}
-
-.MenuButtonContainer:hover .ButtonImage {
-  content: url("../../assets/MenuAndButtons/Light up 1.png");
 }
