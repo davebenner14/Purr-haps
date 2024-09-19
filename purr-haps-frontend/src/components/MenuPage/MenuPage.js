@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import backgroundImage from "../../assets/MenuPage/Menu Pg Background (1).png";
@@ -12,18 +12,32 @@ import lightUp1Image from "../../assets/MenuAndButtons/Light up 1.png";
 import button2Image from "../../assets/MenuAndButtons/Button 2.png";
 import lightUp2Image from "../../assets/MenuAndButtons/Light up 2.png";
 import button3Image from "../../assets/MenuAndButtons/Button 3.png";
-import lightUp3Image from "../../assets/MenuAndButtons/Light up 3.png"; // Added Button 3 and Light Up 3
+import lightUp3Image from "../../assets/MenuAndButtons/Light up 3.png";
 import button4Image from "../../assets/MenuAndButtons/Button 4.png";
-import lightUp4Image from "../../assets/MenuAndButtons/Light up 4.png"; // Added Button 4 and Light Up 4
+import lightUp4Image from "../../assets/MenuAndButtons/Light up 4.png";
 
 import "./MenuPage.css";
 
 const MenuPage = () => {
   const navigate = useNavigate();
-  const [hoveredButton, setHoveredButton] = useState(null); // Modified for multiple buttons
+  const [hoveredButton, setHoveredButton] = useState(null);
+
+  // Preload highlighted images on component mount
+  useEffect(() => {
+    const preloadImages = [
+      lightUp1Image,
+      lightUp2Image,
+      lightUp3Image,
+      lightUp4Image
+    ];
+    preloadImages.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }, []);
 
   const handleButtonClick = (path) => {
-    navigate(path); // Navigate to the next page
+    navigate(path);
   };
 
   return (
@@ -48,8 +62,8 @@ const MenuPage = () => {
         <div
           className="ClickableArea"
           onClick={() => handleButtonClick("/menu1")}
-          onMouseEnter={() => setHoveredButton(1)} // Set hover for Button 1
-          onMouseLeave={() => setHoveredButton(null)} // Remove hover for Button 1
+          onMouseEnter={() => setHoveredButton(1)}
+          onMouseLeave={() => setHoveredButton(null)}
         />
       </div>
 
@@ -61,10 +75,10 @@ const MenuPage = () => {
           alt="Button 2"
         />
         <div
-          className="ClickableArea2" // New clickable area for Button 2
-          onClick={() => handleButtonClick("/bio")} // New path for Button 2
-          onMouseEnter={() => setHoveredButton(2)} // Set hover for Button 2
-          onMouseLeave={() => setHoveredButton(null)} // Remove hover for Button 2
+          className="ClickableArea2"
+          onClick={() => handleButtonClick("/bio")}
+          onMouseEnter={() => setHoveredButton(2)}
+          onMouseLeave={() => setHoveredButton(null)}
         />
       </div>
 
@@ -76,10 +90,10 @@ const MenuPage = () => {
           alt="Button 3"
         />
         <div
-          className="ClickableArea3" // New clickable area for Button 3
-          onClick={() => handleButtonClick("/contact")} // New path for Button 3
-          onMouseEnter={() => setHoveredButton(3)} // Set hover for Button 3
-          onMouseLeave={() => setHoveredButton(null)} // Remove hover for Button 3
+          className="ClickableArea3"
+          onClick={() => handleButtonClick("/contact")}
+          onMouseEnter={() => setHoveredButton(3)}
+          onMouseLeave={() => setHoveredButton(null)}
         />
       </div>
 
@@ -91,10 +105,10 @@ const MenuPage = () => {
           alt="Button 4"
         />
         <div
-          className="ClickableArea4" // New clickable area for Button 4
-          onClick={() => handleButtonClick("/settings")} // New path for Button 4
-          onMouseEnter={() => setHoveredButton(4)} // Set hover for Button 4
-          onMouseLeave={() => setHoveredButton(null)} // Remove hover for Button 4
+          className="ClickableArea4"
+          onClick={() => handleButtonClick("/settings")}
+          onMouseEnter={() => setHoveredButton(4)}
+          onMouseLeave={() => setHoveredButton(null)}
         />
       </div>
     </div>
