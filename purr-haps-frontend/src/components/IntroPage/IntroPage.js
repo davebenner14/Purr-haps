@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./IntroPage.css";
-import tavernImage from "../../assets/IntroAssets/Inside of Tavern.png";
+import tavernImage from "../../assets/IntroAssets/Inside of Tavern.jpg";
 import gateImage from "../../assets/IntroAssets/Gate.png";
 import catImage from "../../assets/IntroAssets/Roaming Cat Silhouette (1).png";
 import titleImage from "../../assets/IntroAssets/Title.png";
